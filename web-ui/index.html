@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microservices Demo UI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Microservices Demo</h1>
+            <p>Authentication, Employee & Department Management</p>
+            <div id="authStatus" class="status logged-out">Not Logged In</div>
+        </div>
+
+        <div class="content">
+            <!-- Authentication Section -->
+            <div class="section">
+                <h2>🔐 Authentication</h2>
+                <div class="grid">
+                    <div>
+                        <h3>Register New User</h3>
+                        <div class="form-group">
+                            <label>Username:</label>
+                            <input type="text" id="regUsername" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label>Email:</label>
+                            <input type="email" id="regEmail" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label>Password:</label>
+                            <input type="password" id="regPassword" placeholder="Enter password">
+                        </div>
+                        <div class="form-group">
+                            <label>Role:</label>
+                            <select id="regRole">
+                                <option value="user">User (Read Only)</option>
+                                <option value="admin">Admin (Full Access)</option>
+                            </select>
+                        </div>
+                        <button class="btn" onclick="register()">Register</button>
+                    </div>
+
+                    <div>
+                        <h3>Login</h3>
+                        <div class="form-group">
+                            <label>Username:</label>
+                            <input type="text" id="loginUsername" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label>Password:</label>
+                            <input type="password" id="loginPassword" placeholder="Enter password">
+                        </div>
+                        <button class="btn" onclick="login()">Login</button>
+                        <button class="btn btn-danger" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+
+                <div id="authResult" class="result" style="display: none;"></div>
+                <div id="tokenDisplay" class="token-display" style="display: none;"></div>
+            </div>
+
+            <!-- File Upload Section -->
+            <div class="section">
+                <h2>📁 Bulk User Registration</h2>
+                <div class="form-group">
+                    <label>Upload JSON File:</label>
+                    <input type="file" id="jsonFile" accept=".json" />
+                    <button class="btn" onclick="uploadJson()">Upload JSON</button>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-secondary" onclick="showJsonFormat()">Show JSON Format</button>
+                </div>
+                <div id="uploadResult" class="result" style="display: none;"></div>
+            </div>
+
+            <!-- Employee Management Section -->
+            <div class="section">
+                <h2>👥 Employee Management</h2>
+                <div class="form-group">
+                    <button class="btn" onclick="getEmployees()">Get All Employees</button>
+                    <button class="btn btn-secondary" onclick="getEmployeesWithDepartment()">Get Employees with Department</button>
+                </div>
+                <div class="form-group">
+                    <label>Employee ID:</label>
+                    <input type="number" id="empId" placeholder="Enter employee ID">
+                    <button class="btn" onclick="getEmployeeById()">Get Employee by ID</button>
+                </div>
+                <div id="employeeResult" class="result" style="display: none;"></div>
+            </div>
+
+            <!-- Department Management Section -->
+            <div class="section">
+                <h2>🏢 Department Management</h2>
+                <div class="form-group">
+                    <button class="btn" onclick="getDepartments()">Get All Departments</button>
+                </div>
+                <div class="form-group">
+                    <label>Department ID:</label>
+                    <input type="number" id="deptId" placeholder="Enter department ID">
+                    <button class="btn" onclick="getDepartmentById()">Get Department by ID</button>
+                </div>
+                <div id="departmentResult" class="result" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

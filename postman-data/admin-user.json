@@ -1,0 +1,21 @@
+[
+  {
+    "UserName": "admin",
+    "Email": "admin@company.com",
+    "Password": "AdminPassword123",
+    "Role": "admin",
+    "Endpoints": [
+      "/api/employee",
+      "/api/department"
+    ]
+  },
+  {
+    "UserName": "user1",
+    "Email": "user1@company.com",
+    "Password": "UserPassword123",
+    "Role": "user",
+    "Endpoints": [
+      "/api/employee"
+    ]
+  }
+]
